@@ -83,6 +83,20 @@
                             <label for="address-input">Address</label>
                         </div>
                     </div>
+
+                    <div class="row">
+                        <div class="col">
+    
+                            <!-- Dropdown Trigger -->
+                            <a class='dropdown-trigger btn light-blue' href='#' data-target='select-address'>Select
+                                Address</a>
+    
+                            <!-- Dropdown Structure -->
+                            <ul id='select-address' class='dropdown-content'>
+                                <!-- <li><a href="#!" id="address">One</a></li> -->
+                            </ul>
+                        </div>
+                    </div>
                     <!-- phone -->
                     <div class="row">
                         <div class="input-field col s6">
@@ -140,6 +154,18 @@
         M.AutoInit();
 
     });
+
+    var items = []
+        $.getJSON("json/districts.json", function (data) {
+            $.each(data, function (key, val) {
+                items.push(val);
+
+                $('#select-address').append('<li><a href="#!">' + val + '</a></li>');
+            });
+
+        });
+
+        console.log(items)
 </script>
 
 </html>
