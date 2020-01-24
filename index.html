@@ -69,11 +69,12 @@
                     <div class="col">
 
                         <!-- Dropdown Trigger -->
-                        <a class='dropdown-trigger btn light-blue' href='#' data-target='select-address'>Select Address</a>
+                        <a class='dropdown-trigger btn light-blue' href='#' data-target='select-address'>Select
+                            Address</a>
 
                         <!-- Dropdown Structure -->
                         <ul id='select-address' class='dropdown-content'>
-                            <li><a href="#!" id="address">One</a></li>
+                            <!-- <li><a href="#!" id="address">One</a></li> -->
                         </ul>
                     </div>
                 </div>
@@ -111,100 +112,20 @@
             setTimeout(autoplay, 4500);
         }
 
-        var districts = [
-    "achham",
-    "arghakhanchi",
-    "baglung",
-    "baitadi",
-    "bajhang",
-    "bajura",
-    "banke",
-    "bara",
-    "bardiya",
-    "bhaktapur",
-    "bhojpur",
-    "chitwan",
-    "dadeldhura",
-    "dailekh",
-    "dang deukhuri",
-    "darchula",
-    "dhading",
-    "dhankuta",
-    "dhanusa",
-    "dholkha",
-    "dolpa",
-    "doti",
-    "gorkha",
-    "gulmi",
-    "humla",
-    "ilam",
-    "jajarkot",
-    "jhapa",
-    "jumla",
-    "kailali",
-    "kalikot",
-    "kanchanpur",
-    "kapilvastu",
-    "kaski",
-    "kathmandu",
-    "kavrepalanchok",
-    "khotang",
-    "lalitpur",
-    "lamjung",
-    "mahottari",
-    "makwanpur",
-    "manang",
-    "morang",
-    "mugu",
-    "mustang",
-    "myagdi",
-    "nawalparasi",
-    "nuwakot",
-    "okhaldhunga",
-    "palpa",
-    "panchthar",
-    "parbat",
-    "parsa",
-    "pyuthan",
-    "ramechhap",
-    "rasuwa",
-    "rautahat",
-    "rolpa",
-    "rukum",
-    "rupandehi",
-    "salyan",
-    "sankhuwasabha",
-    "saptari",
-    "sarlahi",
-    "sindhuli",
-    "sindhupalchok",
-    "siraha",
-    "solukhumbu",
-    "sunsari",
-    "surkhet",
-    "syangja",
-    "tanahu",
-    "taplejung",
-    "terhathum",
-    "udayapur"
-];
-        //fetch address
-        console.log("district length: "+ districts.length);
-
         var items = []
-        $.getJSON("json/districts.json", function( data ) {
-            $.each(data , function() {
-                items.push(data);
+        $.getJSON("json/districts.json", function (data) {
+            $.each(data, function (key, val) {
+                items.push(val);
+
+                $('#select-address').append('<li><a href="!">' + val + '</a></li>');
             });
 
         });
-            console.log(items)
-        for (i= 0; i< districts.length; i++) {
 
-        $('#select-address').append('<li><a href="#!" id="address">' + districts[i] + '</a></li>')
-        }
 
-        
+        console.log(items)
+
+
 
     });
 </script>
