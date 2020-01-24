@@ -16,20 +16,117 @@
 
 <body>
     <div class="nav">
-        <nav>
+        <nav class="light-blue">
             <div class="nav-wrapper">
                 <a href="#" class="brand-logo">Logo</a>
+                <a href="#" data-target="mobile-demo" class="sidenav-trigger pulse"><i
+                        class="material-icons">menu</i></a>
                 <ul id="nav-mobile" class="right hide-on-med-and-down">
                     <li><a href="sass.html">Child Marriage</a></li>
                     <li><a href="badges.html">Maritial Rape</a></li>
                     <li><a href="collapsible.html">Dowry</a></li>
-                    <li><a href="register.html">Register</a></li>
-                    <li><a href="report.html">Report Abuse</a></li>
+                    <li><a href="#report-abuse" class="waves-effect waves-light  modal-trigger">Report Abuse</a></li>
+                    <li><a href="admin.html"><i class="material-icons right">person</i>Register</a></li>
                 </ul>
             </div>
         </nav>
+        <ul id="mobile-demo" class="sidenav">
+            <li><a href="sass.html">Child Marriage</a></li>
+            <li><a href="badges.html">Maritial Rape</a></li>
+            <li><a href="collapsible.html">Dowry</a></li>
+            <li><a href="#report-abuse" class="waves-effect waves-light modal-trigger">Report Abuse</a></li>
+            <li><a href="admin.html"><i class="material-icons right">person</i>Register</a></li>
+        </ul>
     </div>
 
+    <!-- dropdown for login and register -->
+    <ul id="register-dropdown" class="dropdown-content">
+        <li><a href="#">Login</a></li>
+
+    </ul>
+
+    <!-- Carousel -->
+    <div class="carousel carousel-slider center">
+        <a class="carousel-item" href="#one!"><img class="responsive-img carousel-img"
+                src="https://i.imgur.com/Okdr2US.jpg"></a>
+        <a class="carousel-item" href="#two!"><img class="responsive-img carousel-img"
+                src="https://i.imgur.com/1vtwgln.jpg"></a>
+    </div>
+
+
 </body>
+
+<!-- Register Modal -->
+<!-- Modal Structure -->
+<div id="report-abuse" class="modal">
+
+    <div class="register-form">
+        <form action="">
+            <div class="modal-content">
+                <h4>Register</h4>
+
+                <div class="row">
+                    <div class="col s6">
+                        <select class="select-address" name="state">
+                            <option value="AL">Alabama</option>
+                            <option value="WY">Wyoming</option>
+                        </select>
+                    </div>
+
+                    <div class="col s6">
+                        <!-- Dropdown Trigger -->
+                        <a class='dropdown-trigger btn light-blue' href='#' data-target='dropdown1'>Select Address</a>
+
+                        <!-- Dropdown Structure -->
+                        <ul id='dropdown1' class='dropdown-content'>
+                            <li><a href="#!">one</a></li>
+                            <li><a href="#!">two</a></li>
+                            <li class="divider" tabindex="-1"></li>
+                            <li><a href="#!">three</a></li>
+                            <li><a href="#!"><i class="material-icons">view_module</i>four</a></li>
+                            <li><a href="#!"><i class="material-icons">cloud</i>five</a></li>
+                        </ul>
+
+                    </div>
+                </div>
+
+                <div class="modal-footer">
+                    <input type="submit" class="btn" value="submit">
+                </div>
+            </div>
+        </form>
+    </div>
+
+</div>
+
+
+<script>
+    $(document).ready(function () {
+        // for nav
+        $('.sidenav').sidenav();
+
+        M.AutoInit();
+
+        // for carousel
+        $('.carousel').carousel();
+
+        $('.carousel.carousel-slider').carousel({
+            dist: 0,
+            duration: 200,
+            fullWidth: true,
+            indicators: true
+        })
+
+        autoplay()
+        function autoplay() {
+            $('.carousel').carousel('next');
+            setTimeout(autoplay, 4500);
+        }
+
+        // select2 for option
+        $('.select-address').select2();
+
+    });
+</script>
 
 </html>
