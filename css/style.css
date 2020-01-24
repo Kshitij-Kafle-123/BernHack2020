@@ -22,3 +22,8 @@
   width: 24rem;
   height: 18rem;
 }
+
+.modal {
+  width: 75% !important;
+  height: 100% !important;
+}
