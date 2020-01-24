@@ -7,7 +7,10 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h1>Home</h1>
-<a href = "login">Login</a>
+<h1>Login Form</h1>
+<form action="login" method ="post">
+<input type="text" name="branchName">
+<input type= "text" name= "password">
+<input type = "submit"></form>
 </body>
 </html>
