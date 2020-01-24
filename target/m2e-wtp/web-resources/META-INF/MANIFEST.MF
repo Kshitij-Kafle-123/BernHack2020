@@ -1,0 +1,5 @@
+Manifest-Version: 1.0
+Built-By: mande
+Build-Jdk: 11-ea
+Created-By: Maven Integration for Eclipse
+
