@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <!-- Materialize Library -->
+
+    <link rel="import" href="materialize.html">
+    <link rel="stylesheet" href="css/style.css">
+
+    <title>Home</title>
+</head>
+
+<body>
+    <div class="nav">
+        <nav class="light-blue">
+            <div class="nav-wrapper">
+                <a href="index.html" class="brand-logo">Logo</a>
+                <a href="#" data-target="mobile-demo" class="sidenav-trigger pulse"><i
+                        class="material-icons">menu</i></a>
+                <ul id="nav-mobile" class="right hide-on-med-and-down">
+                    <li><a href="sass.html">Child Marriage</a></li>
+                    <li><a href="badges.html">Maritial Rape</a></li>
+                    <li><a href="collapsible.html">Dowry</a></li>
+                    <li><a href="report.html" class="waves-effect waves-light  modal-trigger">Report Abuse</a></li>
+                    <li><a href="admin.html"><i class="material-icons right">person</i>Register</a></li>
+                </ul>
+            </div>
+        </nav>
+        <ul id="mobile-demo" class="sidenav">
+            <li><a href="sass.html">Child Marriage</a></li>
+            <li><a href="badges.html">Maritial Rape</a></li>
+            <li><a href="collapsible.html">Dowry</a></li>
+            <li><a href="report.html" class="waves-effect waves-light modal-trigger">Report Abuse</a></li>
+            <li><a href="admin.html"><i class="material-icons right">person</i>Register</a></li>
+        </ul>
+    </div>
+
+    <!-- dropdown for login and register -->
+    <ul id="register-dropdown" class="dropdown-content">
+        <li><a href="#">Login</a></li>
+
+    </ul>
+
+<div class="report-form container">
+    <form action="">
+            <h4>Report Abuse</h4>
+
+            <div class="row">
+                <div class="input-field col s6">
+                    <i class="material-icons prefix">account_circle</i>
+                    <input type="text" id="address-input" class="validate">
+                    <label for="address-input">Name (prefer to use fake name)</label>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="input-field col s6">
+                    <select id="select-district">
+                        <option value="" disabled selected>Choose your district</option>
+                    </select>
+                    <label>Select District</label>
+                </div>
+            </div>
+
+            <!-- phone -->
+            <div class="row">
+                <div class="input-field col s6">
+                    <i class="material-icons prefix">phone</i>
+                    <input id="icon_telephone" type="tel" class="validate">
+                    <label for="icon_telephone">Telephone</label>
+                </div>
+            </div>
+
+                <button class="normal-btn btn waves-effect waves-light light-blue" type="submit"
+                    name="action">Submit
+                    <i class="material-icons right">send</i>
+                </button>
+    </form>
+</div>
+
+</body>
+
+
+<!-- Modal Structure -->
+<div id="report-abuse" class="modal">
+
+    <div class="report-form">
+        <form action="">
+            <div class="modal-content">
+                <h4>Report Abuse</h4>
+
+                <div class="row">
+                    <div class="input-field col s6">
+                        <i class="material-icons prefix">account_circle</i>
+                        <input type="text" id="address-input" class="validate">
+                        <label for="address-input">Name (prefer to use fake name)</label>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="input-field col s6">
+                        <select id="select-district">
+                            <option value="" disabled selected>Choose your district</option>
+                        </select>
+                        <label>Select District</label>
+                    </div>
+                </div>
+
+                <!-- phone -->
+                <div class="row">
+                    <div class="input-field col s6">
+                        <i class="material-icons prefix">phone</i>
+                        <input id="icon_telephone" type="tel" class="validate">
+                        <label for="icon_telephone">Telephone</label>
+                    </div>
+                </div>
+
+                <div class="modal-footer">
+                    <button class="normal-btn btn waves-effect waves-light light-blue" type="submit"
+                        name="action">Submit
+                        <i class="material-icons right">send</i>
+                    </button> </div>
+            </div>
+        </form>
+    </div>
+
+</div>
+
+<script>
+    $(document).ready(function () {
+        // for nav
+        $('.sidenav').sidenav();
+
+        M.AutoInit();
+
+
+
+
+    });
+
+    loadDistricts();
+
+    function loadDistricts() {
+        var items = []
+        $.getJSON("json/districts.json", function (data) {
+            $.each(data, function (key, val) {
+                items.push(val);
+
+                $('#select-district').append('<option value="' + key + '">' + val + '</option>');
+            });
+
+        });
+
+        console.log(items)
+    }
+
+</script>
+
+</html>

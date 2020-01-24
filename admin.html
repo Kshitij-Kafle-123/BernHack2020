@@ -43,7 +43,7 @@
     <div class="nav">
         <nav class="light-blue">
             <div class="nav-wrapper">
-                <a href="#" class="brand-logo">Logo</a>
+                <a href="index.html" class="brand-logo">Logo</a>
                 <!-- <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
                 <ul id="nav-mobile" class="right hide-on-med-and-down">
                     <li><a href="sass.html">Child Marriage</a></li>
@@ -85,18 +85,15 @@
                     </div>
 
                     <div class="row">
-                        <div class="col">
-    
-                            <!-- Dropdown Trigger -->
-                            <a class='dropdown-trigger btn light-blue' href='#' data-target='select-address'>Select
-                                Address</a>
-    
-                            <!-- Dropdown Structure -->
-                            <ul id='select-address' class='dropdown-content'>
-                                <!-- <li><a href="#!" id="address">One</a></li> -->
-                            </ul>
+                        <div class="input-field col s6">
+                            <select id="select-district" class="district-option">
+                                <option value="" disabled selected>Choose your district</option>
+                            </select>
+                            <label>Select District</label>
                         </div>
                     </div>
+
+                    <div class="district-section"></div>
                     <!-- phone -->
                     <div class="row">
                         <div class="input-field col s6">
@@ -160,7 +157,8 @@
             $.each(data, function (key, val) {
                 items.push(val);
 
-                $('#select-address').append('<li><a href="#!">' + val + '</a></li>');
+                $('#select-district').append('<option value="' + key + '">' + val + '</option>');
+
             });
 
         });
