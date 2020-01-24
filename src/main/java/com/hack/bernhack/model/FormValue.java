@@ -2,11 +2,23 @@ package com.hack.bernhack.model;
 
 import java.util.Date;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name= "form_value")
 public class FormValue {
+	
+	@Id
+	@GeneratedValue
+	private int id;
 	private String districtName;
 	private String nagarpalika;
 	private String category;
 	private String description;
+	//if Date not works change it to java.sql.Date in import section
 	private Date date;
 	private String witness;
 	private String phone;
