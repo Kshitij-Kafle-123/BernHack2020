@@ -53,7 +53,7 @@
                 record = new Record();
                 // console.log(val)
 
-            });
+            })
 
     //         "S.No.": 22,
     //   "Fiscal Year": "074/075",
@@ -68,9 +68,25 @@
     //   "Untouchability": 18,
     //   "Child Sexual Abuse": 0
 
-        });
+        }).done(function() {
+                console.log(items[0])
+  })
+  .fail(function() {
+    console.log( "error" );
+  })
 
         console.log(items)
+
+        function getByValue(arr, value) {
+            var result = arr.filter(obj => {
+                return obj.s_no;
+            });
+            return result;
+        }
+        
+        console.log(getByValue(items, 1))
+
+
 
         
 
