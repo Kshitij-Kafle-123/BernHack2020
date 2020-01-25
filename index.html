@@ -53,14 +53,44 @@
                 src="https://i.imgur.com/1vtwgln.jpg"></a>
     </div>
 
+    <!-- Content -->
+    <div class="container">
 
-    <footer></footer>
+    </div>
+
+
+    <footer class="page-footer light-blue">
+        <div class="container">
+            <div class="row">
+                <div class="col l6 s12">
+                    <h5 class="white-text">About Us</h5>
+                    <p class="grey-text text-lighten-4">...</p>
+                </div>
+                <div class="col l4 offset-l2 s12">
+                    <h5 class="white-text">Contact</h5>
+                    max-height: 100%; <ul>
+                        <!-- <li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
+                <li><a class="grey-text text-lighten-3" href="#!">Link 2</a></li>
+                <li><a class="grey-text text-lighten-3" href="#!">Link 3</a></li>
+                <li><a class="grey-text text-lighten-3" href="#!">Link 4</a></li> -->
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-copyright">
+            <div class="container">
+                &copy; 2020
+                <a class="grey-text text-lighten-4 right" href="#!">BernHack 2020</a>
+            </div>
+        </div>
+    </footer>
+
 
 </body>
 
 <!-- Register Modal -->
 <!-- Modal Structure -->
-<div id="report-abuse" class="modal large">
+<div id="report-abuse" class="modal large" style="height: 200%; max-height: 85%;">
 
     <div class="register-form">
         <form action="">
@@ -89,7 +119,7 @@
                 <div class="row">
                     <div class="input-field col s6">
                         <i class="material-icons prefix">phone</i>
-                        <input id="icon_telephone" type="tel" class="validate">
+                        <input id="icon_telephone" name="phone" type="tel" class="validate">
                         <label for="icon_telephone">Telephone</label>
                     </div>
                 </div>
@@ -98,7 +128,7 @@
                 <div class="row">
                     <div class="input-field col s6">
                         <i class="material-icons prefix">today</i>
-                        <input id="icon_date" type="text" class="datepicker">
+                        <input id="icon_date" type="text" class="datepicker" name="date">
                         <label for="icon_date">Date of Incident</label>
                     </div>
                 </div>
@@ -108,30 +138,15 @@
                 <!-- TOpic -->
                 <div class="row">
                     <div class="input-field col s6">
-                        <p>
-                            <label>
-                                <input type="checkbox" />
-                                <span>Child Marriage</span>
-                            </label>
-                        </p>
-                        <p>
-                            <label>
-                                <input type="checkbox" />
-                                <span>Marital Rape</span>
-                            </label>
-                        </p>
-                        <p>
-                            <label>
-                                <input type="checkbox" class="checkbox" />
-                                <span>Dowry System</span>
-                            </label>
-                        </p>
-                        <p>
-                            <label>
-                                <input id="indeterminate-checkbox" type="checkbox" />
-                                <span>Women Violence</span>
-                            </label>
-                        </p>
+                        <i class="material-icons prefix">category</i>
+                        <select id="select-type">
+                            <option value="" disabled selected>Select Type</option>
+                            <option value="1" selected>Child Marriage</option>
+                            <option value="2" selected>Maritial Rape</option>
+                            <option value="3" selected>Dowry System</option>
+                            <option value="4" selected>Women Violence</option>
+                        </select>
+                        <label>Select Type</label>
                     </div>
                 </div>
 
@@ -139,22 +154,39 @@
                 <!-- image -->
                 <div class="row">
                     <div class="input-field col s6">
-                        <i class="material-icons prefix">add_a_photo</i>
-                        <input id="icon_file" type="file" class="file">
-                        <label for="icon_file">Image</label>
+                        <i class="material-icons prefix">local_see</i>
+                        <input id="image_file" type="file" class="file">
+                        <label for="image_file">Image</label>
                     </div>
                 </div>
 
+                <!-- Witness -->
+                <div class="row">
+                    <div class="input-field col s6">
+                        <i class="material-icons prefix">people</i>
+                        <div id="witness" class="chips chips-placeholder"></div>
+                        <label for="witness">witness</label>
+                    </div>
+                </div>
 
-
-                <div class="modal-footer">
-                    <button class="normal-btn btn waves-effect waves-light light-blue" type="submit"
-                        name="action">Submit
-                        <i class="material-icons right">send</i>
-                    </button> </div>
+                <div class="row">
+                    <div class="input-field col s6">
+                        <i class="material-icons prefix">description</i>
+                        <textarea id="description" name="description" class="materialize-textarea"></textarea>
+                        <label for="description">Description Here...</label>
+                    </div>
+                </div>
             </div>
-        </form>
+
+
+
+            <div class="modal-footer">
+                <button class="normal-btn btn waves-effect waves-light light-blue" type="submit" name="action">Submit
+                    <i class="material-icons right">send</i>
+                </button> </div>
     </div>
+    </form>
+</div>
 
 </div>
 
@@ -180,8 +212,6 @@
             $('.carousel').carousel('next');
             setTimeout(autoplay, 4500);
         }
-
-
 
     });
 
