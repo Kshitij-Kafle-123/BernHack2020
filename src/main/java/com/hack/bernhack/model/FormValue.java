@@ -1,6 +1,5 @@
 package com.hack.bernhack.model;
 
-import java.util.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -19,10 +18,18 @@ public class FormValue {
 	private String category;
 	private String description;
 	//if Date not works change it to java.sql.Date in import section
-	private Date date;
+	private String date;
 	private String witness;
 	private String phone;
 	
+	
+	
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
 	public String getDistrictName() {
 		return districtName;
 	}
@@ -47,10 +54,11 @@ public class FormValue {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	public Date getDate() {
+	
+	public String getDate() {
 		return date;
 	}
-	public void setDate(Date date) {
+	public void setDate(String date) {
 		this.date = date;
 	}
 	public String getWitness() {

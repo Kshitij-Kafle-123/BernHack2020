@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.hack.bernhack.dao.FormDao;
 import com.hack.bernhack.dao.PoliceDao;
 import com.hack.bernhack.model.FormValue;
 import com.hack.bernhack.model.Police;
@@ -19,29 +20,23 @@ public class LoginController {
 	@Autowired
 	private PoliceDao policeDao;
 
+	@Autowired
+	private FormDao fdao;
 	@RequestMapping(value = "/login")
 	public String getLoginForm() {
-		return "login";
+		return "form";
 	}
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
 	public String isExist(@ModelAttribute Police police, Model model) {
 		if(policeDao.login(police.getBranchName(), police.getPassword())!=null) {
-			model.addAttribute("admin", police.getBranchName());
-			return "adminPanel";
+//			model.addAttribute("admin", police.getBranchName());
+			model.addAttribute("formList", fdao.getAllReports());
+			return "form";
 		}
 		model.addAttribute("No user found");
 		return "login";
 	}
 	
-	@RequestMapping(value = "/reports")
-	public String getBookForm(@ModelAttribute Police police, Model model) {
-		if(policeDao.login(police.getBranchName(), police.getPassword())==null) {
-			return "login";
-		} else {
-			model.addAttribute("form", new FormValue());
-			return "adminPanel";
-		}
-		
-	}
+
 }
 

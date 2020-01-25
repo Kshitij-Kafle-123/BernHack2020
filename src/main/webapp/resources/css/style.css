@@ -1,0 +1,24 @@
+* {
+  font-family: "Alegreya", "IBM Plex Sans", sans-serif;
+}
+
+.wrapper {
+}
+
+
+
+/* .carousel .carousel-item {
+    width:480px !important;} */
+
+.carousel .carousel-img {
+  display: block;
+  max-width: 100%;
+  height: 400px;
+}
+
+.img-fluid {
+  display: block;
+  max-width: 100%;
+  width: 24rem;
+  height: 18rem;
+}
